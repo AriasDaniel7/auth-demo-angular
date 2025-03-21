@@ -46,6 +46,9 @@ export class LoginPageComponent implements OnInit {
           this.isLoading = false;
         },
       });
+    } else {
+      this.errorMessage = 'Correo y/o contraseña incorrectos';
+      this.isLoading = false;
     }
   }
 

@@ -24,4 +24,8 @@ export const routes: Routes = [
       ),
     canActivate: [isNotAuthenticatedLoginGuard],
   },
+  {
+    path: '**',
+    redirectTo: '/login',
+  },
 ];

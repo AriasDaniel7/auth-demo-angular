@@ -1,0 +1,20 @@
+@if (!isLoading) {
+<section class="flex flex-col items-center justify-center h-screen gap-4">
+  <h1 class="text-center font-semibold text-3xl">
+    Bienvenido - {{ user?.userName | titlecase }}
+  </h1>
+  <pre>{{ user | json }}</pre>
+  <button
+    (click)="loggout()"
+    class="bg-sky-700 text-white p-2 rounded-lg shadow-lg mt-3 w-[100px]"
+  >
+    Salir
+  </button>
+</section>
+}@else {
+<section class="flex flex-col items-center justify-center h-screen gap-4">
+  <svg viewBox="25 25 50 50">
+    <circle r="20" cy="50" cx="50"></circle>
+  </svg>
+</section>
+}

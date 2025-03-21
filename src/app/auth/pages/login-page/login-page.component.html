@@ -1,0 +1,70 @@
+<section
+  class="flex flex-col items-center justify-center w-full h-screen gap-4"
+>
+  <h1 class="text-center font-semibold text-3xl">Login - Auth API REST</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="flex flex-col justify-center items-center gap-2">
+      <span class="text-xl">Correo:</span>
+      <input
+        class="text-base border border-gray-600 rounded-lg outline-none py-1 px-2 shadow-sm"
+        type="email"
+        formControlName="email"
+        required
+      />
+      <span class="text-xl">Contraseña:</span>
+      <input
+        class="text-base border border-gray-600 rounded-lg outline-none py-1 px-2 shadow-sm"
+        type="password"
+        formControlName="password"
+        required
+      />
+      <button
+        type="submit"
+        class="bg-sky-700 text-white p-2 rounded-lg shadow-lg mt-3"
+      >
+        Iniciar sesion
+      </button>
+      @if(!isLoading){ @if(successMessage){
+      <span class="text-green-500 mt-2 text-base">{{ successMessage }}</span>
+      } @if (errorMessage) {
+      <span class="text-red-500 mt-2 text-base">{{ errorMessage }}</span>
+      } }@else {
+      <span class="text-blue-500 mt-2 text-base">Cargando...</span>
+      }
+    </div>
+  </form>
+
+  <h2 class="font-semibold text-base mt-2">Usuarios de prueba más abajo 👇</h2>
+  <span class="font-normal text-base"
+    ><strong class="font-semibold text-base">Contraseña para todos: </strong
+    >Password123</span
+  >
+  <strong class="font-semibold text-base">
+    API_URL:
+    <a
+      class="hover:text-blue-500 font-normal text-base"
+      href="https://eventual-helyn-daniel-arias-807fbc12.koyeb.app/api"
+      >https://eventual-helyn-daniel-arias-807fbc12.koyeb.app/api</a
+    >
+  </strong>
+  <strong class="font-semibold text-base">
+    BACKEND_NESTJS_URL:
+    <a
+      class="hover:text-blue-500 font-normal text-base"
+      href="https://github.com/AriasDaniel7/auth-demo"
+      >https://github.com/AriasDaniel7/auth-demo</a
+    >
+  </strong>
+  <strong class="font-semibold text-sm">
+    Creado por: :
+    <a
+      class="hover:text-blue-500 font-normal text-sm"
+      href="https://github.com/AriasDaniel7"
+      >Danie David Arias M. &copy;</a
+    >
+  </strong>
+</section>
+
+<section class="flex flex-col items-center justify-center gap-4 mb-8">
+  <pre>{{ users | json }}</pre>
+</section>

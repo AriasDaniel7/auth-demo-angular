@@ -3,10 +3,47 @@
   <h1 class="text-center font-semibold text-3xl">
     Bienvenido - {{ user?.userName | titlecase }}
   </h1>
-  <pre>{{ user | json }}</pre>
+  <div
+      class="rounded-lg max-w-[50rem] max-h-[40rem] p-4 border-gray-200 border-2 shadow-sm"
+    >
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">Id:</strong>
+        <p class="text-base">{{ user?.id }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">userName:</strong>
+        <p class="text-base">{{ user?.userName }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">email:</strong>
+        <p class="text-base">{{ user?.email }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">fullName:</strong>
+        <p class="text-base">{{ user?.fullName }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">fullName:</strong>
+        <p class="text-base">{{ user?.fullName }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">isActive:</strong>
+        <p class="text-base">{{ user?.isActive }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">roles:</strong>
+        <p class="text-base">[</p>
+        @for (role of user?.roles; track $index) {
+        <p class="text-base">{{ role }}</p>
+        @if ($index < user!.roles.length - 1) {
+        <p class="text-base">,</p>
+        } }
+        <p class="text-base">]</p>
+      </div>
+    </div>
   <button
     (click)="loggout()"
-    class="bg-sky-700 text-white p-2 rounded-lg shadow-lg mt-3 w-[100px]"
+    class="bg-sky-700 text-white p-2 rounded-lg shadow-sm w-[100px]"
   >
     Salir
   </button>

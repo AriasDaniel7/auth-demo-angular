@@ -35,9 +35,9 @@
   </form>
 
   <h2 class="font-semibold text-base mt-2">Usuarios de prueba más abajo 👇</h2>
-  <span class="font-normal text-base"
+  <p class="font-normal text-base"
     ><strong class="font-semibold text-base">Contraseña para todos: </strong
-    >Password123</span
+    >Password123</p
   >
   <div class="flex flex-col items-start justify-center md:items-center gap-1">
     <strong class="font-semibold text-base">
@@ -75,7 +75,48 @@
   </div>
 </section>
 
-<section class="section flex flex-col items-center justify-center gap-4 mb-8">
+<section class="section flex flex-col items-center justify-center w-full h-full gap-4 pb-6">
   <h2 class="text-2xl font-semibold">Usuarios de prueba</h2>
-  <pre>{{ users | json }}</pre>
+  <div class="flex flex-row flex-wrap justify-center items-center gap-4">
+    @for (user of users; track $index) {
+    <div
+      class="rounded-lg max-w-[50rem] h-full p-4 border-gray-200 border-2 shadow-sm"
+    >
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">Id:</strong>
+        <p class="text-base">{{ user.id }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">userName:</strong>
+        <p class="text-base">{{ user.userName }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">email:</strong>
+        <p class="text-base">{{ user.email }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">fullName:</strong>
+        <p class="text-base">{{ user.fullName }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">fullName:</strong>
+        <p class="text-base">{{ user.fullName }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">isActive:</strong>
+        <p class="text-base">{{ user.isActive }}</p>
+      </div>
+      <div class="flex flex-row items-start justify-start gap-1">
+        <strong class="text-base">roles:</strong>
+        <p class="text-base">[</p>
+        @for (role of user.roles; track $index) {
+        <p class="text-base">{{ role }}</p>
+        @if ($index < user.roles.length - 1) {
+        <p class="text-base">,</p>
+        } }
+        <p class="text-base">]</p>
+      </div>
+    </div>
+    }
+  </div>
 </section>
